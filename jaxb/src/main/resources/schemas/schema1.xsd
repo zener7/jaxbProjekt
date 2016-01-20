@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="NazwaRootElement" type="osoba"/>
+
+  <xs:element name="address" type="address"/>
+
+  <xs:complexType name="address">
+    <xs:sequence>
+      <xs:element name="miejscowosc" type="xs:string" minOccurs="0"/>
+      <xs:element name="nrDomu" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="osoba">
+    <xs:sequence>
+      <xs:element name="wiek" type="xs:int"/>
+      <xs:element name="nazwa" type="xs:string" minOccurs="0"/>
+      <xs:element name="defaultText" type="xs:string" default="domy&#313;&#8250;lna warto&#313;&#8250;c" minOccurs="0"/>
+      <xs:element name="intValue" type="xs:int" minOccurs="0"/>
+      <xs:element name="adresy" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="adres" type="address" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

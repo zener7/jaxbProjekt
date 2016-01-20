@@ -10,7 +10,7 @@
  
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.version>1.8</java.version>
+		<java.version>1.7</java.version>
 	</properties>
 
 	<build>
@@ -23,6 +23,25 @@
 					<source>${java.version}</source>
 					<target>${java.version}</target>
 				</configuration>
+			</plugin>
+			<plugin>
+			    <groupId>org.codehaus.mojo</groupId>
+			    <artifactId>jaxb2-maven-plugin</artifactId>
+			    <version>1.3.1</version>
+			    <executions>
+			        <execution>
+			            <goals>
+			                <goal>schemagen</goal>
+			            </goals>
+			            <phase>generate-resources</phase>
+			            <configuration>
+			                <includes>
+			                    <include>pl/norbipol/example/jaxb/objects/*.java</include>
+			                </includes>
+			                <outputDirectory>src/main/resources/schemas</outputDirectory>
+			            </configuration>
+			        </execution>
+			    </executions>
 			</plugin>
 		</plugins>
 	</build>
